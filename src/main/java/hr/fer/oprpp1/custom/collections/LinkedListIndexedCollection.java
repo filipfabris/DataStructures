@@ -76,12 +76,13 @@ public class LinkedListIndexedCollection extends Collection {
 	/**
 	 * Adds all elements from <b>other</b> Collection to <b>LinkedListIndexedCollection</b>
 	 * @param other collection from which elements will be added to current <b>LinkedListIndexedCollection</b>
+	 * @throws NullPointerException if other collection is null
 	 */
 	//Constructor
 	public LinkedListIndexedCollection(Collection other) {
 		
 		if(other == null) {
-			throw new NullPointerException();
+			throw new NullPointerException("other collection is null");
 		}
 		
 		this.addAll(other);
@@ -100,7 +101,7 @@ public class LinkedListIndexedCollection extends Collection {
 	@Override
 	public void add(Object value) {
 		if (value == null) {
-			throw new NullPointerException();
+			throw new NullPointerException("value is null");
 		}
 
 		size++;
@@ -134,7 +135,7 @@ public class LinkedListIndexedCollection extends Collection {
 	@Override
 	public boolean contains(Object value) {
 		if (value == null) {
-			throw new NullPointerException();
+			throw new NullPointerException("value is null");
 		}
 
 		ListNode current = first;
@@ -157,7 +158,7 @@ public class LinkedListIndexedCollection extends Collection {
 	@Override
 	public boolean remove(Object value) {
 		if (value == null) {
-			throw new NullPointerException();
+			throw new NullPointerException("value is null");
 		}
 
 		ListNode current = first;
@@ -215,7 +216,7 @@ public class LinkedListIndexedCollection extends Collection {
 	public Object get(int index) {
 
 		if (index < 0 || index > size - 1) {
-			throw new IndexOutOfBoundsException();
+			throw new IndexOutOfBoundsException("index is out of bounds");
 		}
 		
 		int counter;
@@ -249,11 +250,11 @@ public class LinkedListIndexedCollection extends Collection {
 	 */
 	public void insert(Object value, int position) {
 		if (position < 0 || position > size) {
-			throw new IndexOutOfBoundsException();
+			throw new IndexOutOfBoundsException("index is out of bounds");
 		}
 		
 		if (value == null) {
-			throw new NullPointerException();
+			throw new NullPointerException("value is null");
 		}
 
 		if(this.first == null && position == 0) {
@@ -304,7 +305,7 @@ public class LinkedListIndexedCollection extends Collection {
 	 */
 	public int indexOf(Object value) {
 		if (value == null) {
-			throw new NullPointerException();
+			throw new NullPointerException("value to be searched");
 		}
 		
 		int index = 0;
@@ -328,7 +329,7 @@ public class LinkedListIndexedCollection extends Collection {
 	 */
 	public void remove(int index) {
 		if (index < 0 || index > size - 1) {
-			throw new IndexOutOfBoundsException();
+			throw new IndexOutOfBoundsException("index is out of bounds");
 		}
 
 		// Prvi i jedini

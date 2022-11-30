@@ -3,7 +3,11 @@ package hr.fer.oprpp1.custom.collections;
 public class ObjectStack {
 	
 	ArrayIndexedCollection stack = new ArrayIndexedCollection();
-	
+
+	/**
+	 * Store the collection of objects. It is based on Last-In-First-Out
+	 * Using Adapter pattern of ArrayIndexedCollection
+	 */
 	public ObjectStack(){
 
 	}

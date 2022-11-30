@@ -13,6 +13,12 @@ public class StackTest {
 		stack.peek();
 		
 		stack.pop();
+		
+		stack.pop();
+
+		
+		stack.pop();
+
 
 	}
 

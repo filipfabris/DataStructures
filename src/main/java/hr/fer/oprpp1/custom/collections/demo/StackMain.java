@@ -6,8 +6,8 @@ import hr.fer.oprpp1.custom.collections.ObjectStack;
 public class StackMain {
 
 	public static void main(String[] args) {
-
-		String input = "9 5 5 / - 3 2 * - 18 +";
+		//"9 5 5 / - 3 2 * - 18 +"
+		String input;
 
 		if (args.length != 1) {
             throw new IllegalArgumentException("args.length should be 1 and the args[0] should be the whole expression");

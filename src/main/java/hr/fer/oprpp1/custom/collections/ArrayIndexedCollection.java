@@ -50,7 +50,7 @@ public class ArrayIndexedCollection extends Collection{
 	//Constructor
 	public ArrayIndexedCollection(int initialCapacity) {
 		if(initialCapacity < 1) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("initialCapacity is smaller than 1");
 		}
 		
 		this.elements = new Object[initialCapacity];
@@ -70,11 +70,11 @@ public class ArrayIndexedCollection extends Collection{
 	//Constructor
 	public ArrayIndexedCollection(Collection other, int initialCapacity) {
 		if(other == null) {
-			throw new NullPointerException();
+			throw new NullPointerException("other collection is null");
 		}
 		
 		if(initialCapacity < 1) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("initialCapacity is smaller than 1");
 		}
 		
 		if(initialCapacity < other.size()) {
@@ -104,11 +104,15 @@ public class ArrayIndexedCollection extends Collection{
 	public int size() {
 		return size;
 	}
-
+	
+	/**
+	 * @param value Adds the given object into this collection
+	 * @throws NullPointerException if value is null
+	 */
 	@Override
 	public void add(Object value) {
 		if(value == null) {
-			throw new NullPointerException();
+			throw new NullPointerException("value is null");
 		}
 		
 		checkCapacity();
@@ -117,8 +121,18 @@ public class ArrayIndexedCollection extends Collection{
 		size++;
 	}
 
+	/**
+	 * @param value object to be checked if exists in colletion
+	 * @return Returns true only if the collection contains given value
+	 * @throws NullPointerException if value is null
+	 */
 	@Override
 	public boolean contains(Object value) {
+		
+		if(value == null) {
+			throw new NullPointerException("value is null");
+		}
+		
 		for(int i = 0; i<size; i++) {
 			if(elements[i].equals(value)) {
 				return true;
@@ -127,8 +141,18 @@ public class ArrayIndexedCollection extends Collection{
 		return false;
 	}
 	
+	/**
+	 * @param value object to be removed
+	 * @return Returns true only if the collection contains given value
+	 * @throws NullPointerException if value is null
+	 */
 	@Override
 	public boolean remove(Object value) {
+		
+		if(value == null) {
+			throw new NullPointerException("value is null");
+		}
+		
 		for(int i = 0; i < size; i++) {
 			if(elements[i].equals(value)) {
 				postRemove(i);
@@ -175,7 +199,7 @@ public class ArrayIndexedCollection extends Collection{
 	 */
 	public Object get(int index) {
 		if(index < 0 || index > size -1) {
-			throw new IndexOutOfBoundsException();
+			throw new IndexOutOfBoundsException("index is out of bounds");
 		}
 		
 		return elements[index];
@@ -188,7 +212,7 @@ public class ArrayIndexedCollection extends Collection{
 	 */
 	public int indexOf(Object value) {
 		if(value == null) {
-			throw new NullPointerException();
+			throw new NullPointerException("value is null");
 		}
 
 		for(int i = 0; i<size; i++) {
@@ -206,7 +230,7 @@ public class ArrayIndexedCollection extends Collection{
 	 */
 	public void remove(int index) {
 		if(index < 0 || index > size -1) {
-			throw new IndexOutOfBoundsException();
+			throw new IndexOutOfBoundsException("index is out of bounds");
 		}
 		postRemove(index);
 	}
@@ -220,11 +244,11 @@ public class ArrayIndexedCollection extends Collection{
 	 */
 	public void insert(Object value, int position) {
 		if(position < 0 || position > size -1) {
-			throw new IndexOutOfBoundsException();
+			throw new IndexOutOfBoundsException("index is out of bounds");
 		}
 		
 		if(value == null) {
-			throw new NullPointerException();
+			throw new NullPointerException(" value is null");
 		}
 		
 		checkCapacity();
